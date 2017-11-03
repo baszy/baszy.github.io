@@ -1,0 +1,46 @@
+/* Tab header */
+span.tab-header {
+	padding: 14px 16px;
+	font-size: 17px;
+	color: #FFFFFF;
+}
+
+span.tab-header img {
+	vertical-align: middle;
+	height: 33px;
+	width: 100px;
+}
+
+/* Tab base */
+div.tabbed {
+	overflow: hidden;
+	height: 50px;
+	
+	color: #FFFFFF;
+	background-color: #333;
+	
+	opacity: 0.8;
+}
+
+div.tabbed a {
+	vertical-align: bottom;
+	padding: 14px 16px;
+	
+	color: inherit;
+	background-color: inherit;
+	
+	transition: 0.5s;
+	font-size: 17px;
+}
+
+div.tabbed a.active {
+	background-color: #111;
+}
+
+div.tabbed a:focus {
+	outline: none;
+}
+
+div.tabbed a:hover {
+	background-color: #111;
+}
