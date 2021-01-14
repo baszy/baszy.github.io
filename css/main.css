@@ -1,0 +1,64 @@
+/* Theme colors */
+:root {
+    --accent-color: #e0004d;
+    --text-color: #666666;
+}
+
+a { text-decoration: none; }
+a:link { color: #5db8f4 }
+a:visited { color: #5db8f4 }
+a:hover { color: #3388ee }
+
+body {
+	color: var(--text-color);
+	
+    font-family: Verdana;
+	font-size: 14pt;
+	line-height: 1.5;
+	
+	margin: 0 auto;
+	padding: 0px;
+	max-width: 800px;
+}
+
+h2 { overflow:hidden; }
+
+h2:after {
+    content: "";
+
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    
+    border-top: 1px dashed var(--text-color);
+
+    margin-right: -100%;
+    margin-left: 10px;
+}
+
+.header a {
+	color: var(--text-color);
+	
+	font-size: 24pt;
+	font-weight: bold;
+	
+	padding: 10px;
+}
+
+img.framed {
+    float: right;
+    margin: 20px 0px 20px 20px;
+    max-width: 160px;
+    
+    border: 8px solid #eeeeee;
+    box-shadow: 0px 0px 10px var(--text-color);
+}
+
+.invert {
+    color: #ffffff !important;
+    background-color: var(--accent-color);
+}
+
+p.tall { min-height: 85px; }
+
+.text { padding: 2% 5%; }
