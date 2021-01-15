@@ -2,27 +2,32 @@
 :root {
     --accent-color: #e0004d;
     --text-color: #666666;
-}
+    --background-color: #ffffff;
 
-a { text-decoration: none; }
-a:link { color: #5db8f4 }
-a:visited { color: #5db8f4 }
-a:hover { color: #3388ee }
-
-body {
+    background-color: var(--background-color);
 	color: var(--text-color);
 	
     font-family: Verdana;
 	font-size: 14pt;
-	line-height: 1.5;
 	
-	margin: 0 auto;
+    line-height: 1.8;
+}
+
+a { text-decoration: none; }
+a:link { color: #5db8f4; }
+a:visited { color: #5db8f4; }
+a:hover { color: #3388ee; }
+
+body {
+	margin: 0px auto;
 	padding: 0px;
 	max-width: 800px;
 }
 
-h2 { overflow:hidden; }
+.text { padding: 0% 5%; }
 
+/* Creates a dashed line after any h2 element in the document */
+h2 { overflow:hidden; }
 h2:after {
     content: "";
 
@@ -36,29 +41,32 @@ h2:after {
     margin-left: 10px;
 }
 
+/* Nice simple header setup */
+.header {
+    display: flex;
+    height: 64px;
+}
 .header a {
-	color: var(--text-color);
-	
-	font-size: 24pt;
-	font-weight: bold;
-	
-	padding: 10px;
+    color: var(--text-color);
+
+    font-size: 24pt;
+    font-weight: bold;
+    padding: 0px 15px;
+}
+.invert {
+    /* This is always white so it will have good contrast in dark mode */
+    color: #ffffff !important;
+    background-color: var(--accent-color) !important;
 }
 
 img.framed {
     float: right;
-    margin: 20px 0px 20px 20px;
+    margin: 20px;
+    margin-right: 0px;
     max-width: 160px;
     
     border: 8px solid #eeeeee;
     box-shadow: 0px 0px 10px var(--text-color);
 }
 
-.invert {
-    color: #ffffff !important;
-    background-color: var(--accent-color);
-}
-
 p.tall { min-height: 85px; }
-
-.text { padding: 2% 5%; }

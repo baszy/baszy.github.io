@@ -4,11 +4,11 @@
  */
 
 /* Here's the actual address. */
-var addr = [157, 140, 139, 158, 139, 151, 144, 143, 138, 147, 144,
-            140, 191, 152, 146, 158, 150, 147, 209, 156, 144, 146];
+const addr = [157, 140, 139, 158, 139, 151, 144, 143, 138, 147, 144,
+              140, 191, 152, 146, 158, 150, 147, 209, 156, 144, 146];
 
 /* Generates an XORed list of character codes for email anonymity */
-var generate_addr = (string) => {
+const generate_addr = (string) => {
     var chars = [];
     for (let i = 0; i < string.length; i++) {
         chars.push(string.charCodeAt(i) ^ 255);
@@ -17,7 +17,7 @@ var generate_addr = (string) => {
 }
 
 /* Retrieves the original string from this XORed list */
-var retrieve_addr = () => {
+const retrieve_addr = () => {
     var result = [];
     for (let i = 0; i < addr.length; i++) {
         result.push(addr[i] ^ 255);
@@ -26,6 +26,6 @@ var retrieve_addr = () => {
 }
 
 /* Opens a mailto: link to the """decrypted""" address */
-var mail_to = () => {
+const mail_to = () => {
     window.location.assign("mailto:" + retrieve_addr());
 }
