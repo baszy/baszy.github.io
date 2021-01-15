@@ -14,9 +14,9 @@
 }
 
 a { text-decoration: none; }
-a:link { color: #5db8f4; }
-a:visited { color: #5db8f4; }
-a:hover { color: #3388ee; }
+a:link { color: var(--text-color); }
+a:visited { color: var(--text-color); }
+a:hover { color: var(--accent-color); }
 
 body {
 	margin: 0px auto;
@@ -35,7 +35,7 @@ h2:after {
     display: inline-block;
     vertical-align: middle;
     
-    border-top: 1px dashed var(--text-color);
+    border-top: 1px solid var(--text-color);
 
     margin-right: -100%;
     margin-left: 10px;
