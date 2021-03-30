@@ -1,9 +1,5 @@
 /* Theme colors */
 :root {
-    --accent-color: #e0004d;
-    --text-color: #666666;
-    --background-color: #ffffff;
-
     background-color: var(--background-color);
 	color: var(--text-color);
 	
@@ -11,6 +7,22 @@
 	font-size: 14pt;
 	
     line-height: 1.8;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent-color: #e0004d;
+        --text-color: #eaeaea;
+        --background-color: #252525;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --accent-color: #e0004d;
+        --text-color: #666666;
+        --background-color: #ffffff;
+    }
 }
 
 a { text-decoration: none; }
