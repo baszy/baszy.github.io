@@ -1,0 +1,52 @@
+:root { --theme: #f70; }
+
+body { 
+    font-family: Helvetica;
+    margin: 0;
+}
+
+a       { color: inherit; }
+a:hover { color: var(--theme); }
+.sidebar a       { text-decoration: none; }
+.sidebar a:hover { color: white; }
+
+/* We shift down the h* tags a little. I think double the font size for h1 is way too big. */
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.17em; }
+h3 { font-size: 1em; }
+
+pre { padding: 15px; }
+
+th, td {
+    padding-right: 20px;
+    text-align: left;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    min-height: 200px;
+    padding: 15px;
+
+    background-color: var(--theme);
+
+    font-weight: bolder;
+    text-align: right;
+}
+
+.active { color: white; }
+
+.sidebar h1 { margin: 0; }
+.sidebar h2 { margin: 0; }
+
+.page-title { margin: 0; }
+
+.content {
+    max-width: 800px;
+    margin-left: 230px;
+    padding: 15px;
+}
+
+.email { background-color: var(--theme); }
