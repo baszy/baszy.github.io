@@ -1,0 +1,13 @@
+<div class="sidebar"> 
+    <h1>{{ .Site.Title }}</h1>
+    {{ $current := . }}
+    <nav>
+        {{ range .Site.Menus.nav }}
+        {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
+        {{ $active = or $active (eq .Name $current.Title) }}
+        {{ $active = or $active (and (eq .Name "Posts") (or (eq $current.Section "posts") (eq $current.Section "tags"))) }}
+        {{ $active = or $active (and (eq .Name "Software") (eq $current.Section "software")) }}
+        <h2 {{ if $active }} class="active"{{ end }}><a href="{{ .URL }}">{{ .Name }}</a></h2>
+        {{ end }}
+    </nav>
+</div>

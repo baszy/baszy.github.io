@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    {{- partial "head.html" . -}}
+    <body>
+        {{- partial "sidebar.html" . -}}
+        <div class="content">
+            {{- partial "header.html" . -}}
+            <main>
+                <h1 class="page-title">{{ .Title }}</h1>
+                <hr>
+                {{- block "main" . }}{{- end }}
+            </main>
+            {{- partial "footer.html" . -}}
+        </div>
+    </body>
+</html>

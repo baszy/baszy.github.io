@@ -1,0 +1,8 @@
+name = "Villainy"
+license = "MIT"
+description = "Simple as"
+min_version = "0.41.0"
+
+[author]
+  name = "Basile Stathopulos"
+  homepage = "baszy.github.io"

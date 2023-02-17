@@ -1,0 +1,35 @@
+{{ define "main" }}
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Subject</th>
+        {{ if false }}
+        <th>Contents</th>
+        {{ end }}
+    </tr>
+    {{ range .Pages.ByPublishDate.Reverse }}
+    <tr>
+        <td>
+            {{ $dateTime := .PublishDate.Format "2006-01-02" }}
+            {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
+            <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+        </td>
+        <td>
+            <a href="{{ .RelPermalink }}">
+                {{ .Title }}
+            </a>
+        </td>
+        {{ if false }}
+        <td>
+            <!-- Thanks, Hugo.
+                 https://github.com/gohugoio/hugo/issues/8910 -->
+            {{ .Summary | plainify | htmlUnescape | chomp }}
+            {{ if .Truncated }}
+            <a href="{{ .RelPermalink }}">... read more</a>
+            {{ end }}
+        </td>
+        {{ end }}
+    </tr>
+    {{ end }}
+</table>
+{{ end }}
