@@ -1,4 +1,23 @@
-:root { --theme: #f70; }
+:root {
+    --theme: #f70;
+    --content-width: 800px;
+
+    --black: #111;
+    --white: #eee;
+    --gray:  #999;
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        color: var(--black);
+        background-color: var(--white);
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        color: var(--white);
+        background-color: var(--black);
+    }
+}
 
 body { 
     font-family: Helvetica;
@@ -11,8 +30,8 @@ a:hover { color: var(--theme); }
 .sidebar a:hover { color: white; }
 
 /* We shift down the h* tags a little. I think double the font size for h1 is way too big. */
-h1 { font-size: 1.5em; }
-h2 { font-size: 1.17em; }
+h1 { font-size: 1.75em; }
+h2 { font-size: 1.25em; }
 h3 { font-size: 1em; }
 
 pre { padding: 15px; }
@@ -23,19 +42,30 @@ th, td {
 }
 
 .sidebar {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 200px;
     min-height: 200px;
     padding: 15px;
+    margin: 20px auto;
 
+    color: black;
     background-color: var(--theme);
 
     font-weight: bolder;
-    text-align: right;
 }
-
+.content {
+    max-width: var(--content-width);
+    padding: 15px;
+    margin: auto;
+}
+@media screen and (min-width: 830px) {
+    .sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+    .content { margin: 0 0 0 230px; }
+}
 .active { color: white; }
 
 .sidebar h1 { margin: 0; }
@@ -43,10 +73,39 @@ th, td {
 
 .page-title { margin: 0; }
 
-.content {
-    max-width: 800px;
-    margin-left: 230px;
-    padding: 15px;
-}
-
 .email { background-color: var(--theme); }
+
+img { max-width: 100%; }
+
+ul { padding: 0px 10px 0px 30px; }
+ul li { list-style-type: disc; }
+
+div.gallery {
+    margin: 2em 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+div.gallery img.gallery-item {
+    /* width: 160px; */
+    height: 90px;
+    object-fit: contain;
+
+    margin: 4px;
+
+    border: 7px solid white;
+    border-bottom: 21px solid white;
+    border-radius: 5px;
+
+    background-color: white; /* if we force a static width on gallery-item, this might be better as black */
+    transform: rotate(2deg);
+    box-shadow: 0 0 5px black;
+}
+div.gallery img.gallery-item:hover {
+    box-shadow: 0 0 5px var(--gray);
+}
+p.gallery-after {
+    font-size: 0.8em;
+    margin-top: 5px;
+    text-align: center;
+}

@@ -1,45 +1,74 @@
 ---
 title: "Method"
 date: 2023-02-06T20:58:19-05:00
+lastmod: 2025-12-02T21:22:00-05:00
 type: "page"
 layout: "static"
 ---
 
 ## About
 
-Method is a complete, minimal-dependency OpenGL rendering engine I have been
-working on to learn computer graphics. The only dependencies are SDL and glad
-(and likely FreeType in the future, once I get sick of bitmap fonts).
+Method is an OpenGL rendering engine I have been working on to learn computer
+graphics. The only dependencies are SDL and glad.
 
-It currently only runs on Linux due to occasional usage of mmap and inotify.
-However, this code is separated into a platform layer so that a WinAPI version
-can easily be integrated.
-
-The Github version is not actively updated.
+The corresponding Github repository is not actively updated.
 
 ## Features
  - 3D rendering
-    - Basic scene description
-    - Blinn-Phong shading
-    - Shadow mapping, real-time reprojection (required for CSM)
-    - Post-processing (gamma correction, exposure, bloom)
-    - Atmospheric scattering for sky rendering based on [this](https://doi.org/10.1145/166117.166140) paper
+    - Shadow mapping, CSM, PCSS
+    - Post-processing (gamma correction, tonemapping, bloom)
+    - Phyiscally-inspired atmospheric scattering for sky rendering based on [this](https://doi.org/10.1145/166117.166140) paper
+       - Not-so-physically inspired clouds
+    - Deferred decals
+    - Mesh decals
+    - PBR spec/gloss pipeline
+    - Probe-based global illumination
+        - Cubemap and spherical harmonics for specular and diffuse
+    - GPU path tracing
+    - Mesh CSG for blockout
  - 2D rendering
+    - Texture generator
+       - Perlin, Voronoi, Worley noise
+       - Composition of images -- add, multiply, threshold, min/max, lerp, invert
     - Bitmap font rendering
     - Custom UI toolkit
-       - Windowing
-       - Simple vertical/horizontal layouts
-       - Labels
-       - Buttons
-       - Text boxes
-       - Progress bars
-       - Immediate-mode API for convenience, and retained backend for performance
-    - In-game console
- - PNG image reader
- - TGA image reader + writer
- - OBJ model reader
- - Live asset reload with inotify
+       - Simple vertical/horizontal and fixed layouts
+       - Windows, labels, buttons, text boxes, sliders, progress bars, color picker, texture embed
+    - Atlas packing
+    - Batched draw calls
+ - In-game console
+    - Console variable system
+    - Autorun
+    - Context-sensitive autocomplete
+    - Persistent history
+ - Shader preprocessor
+ - Scene serialization
+    - One JSON file per entity (diffable and avoids checkout conflicts)
+ - CPU profiler
+ - GPU profiler
+ - Custom file format loaders
+   - JSON parser
+   - PNG image reader
+   - TGA image reader and writer
+   - OBJ model reader
+ - Linux and Win32 support layers
+   - Filesystem watching
+ - Asset hot-reloading 
 
-## Screenshots
-
-![Editor screenshot](screenshots/editor.png)
+{{< raw >}}
+  <div class="gallery">
+    <a href="screenshots/editor.png" title="Edit world">
+      <img class="gallery-item" src="screenshots/editor.png">
+    </a>
+    <a href="screenshots/path-tracing.png" title="GPU path tracing">
+      <img class="gallery-item" src="screenshots/path-tracing.png">
+    </a>
+    <a href="screenshots/console.png" title="Nice-to-use console">
+      <img class="gallery-item" src="screenshots/console.png">
+    </a>
+    <a href="screenshots/sky.png" title="Atmosphere rendering">
+      <img class="gallery-item" src="screenshots/sky.png">
+    </a>
+  </div>
+  <p class="gallery-after">Click to see full-size version</p>
+{{< /raw >}}

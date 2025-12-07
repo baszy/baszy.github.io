@@ -2,6 +2,13 @@
     {{ $dateTime := .PublishDate.Format "2006-01-02" }}
     {{ $dateFormat := .Site.Params.dateFormat | default "Jan 2, 2006" }}
     <time datetime="{{ $dateTime }}">{{ .PublishDate.Format $dateFormat }}</time>
+    {{- if .Lastmod }}
+      {{- $lastModTime := .Lastmod.Format "2006-01-02" }}
+      {{- if ne $lastModTime $dateTime }}
+        <br>
+        (last edited: <time datetime="{{ $lastModTime }}">{{ .Lastmod.Format $dateFormat }}</time>)
+      {{- end }}
+    {{- end }}
     <br>
     Tagged:
     {{ with .Params.tags }}

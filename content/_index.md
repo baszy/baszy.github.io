@@ -5,10 +5,6 @@ type: "page"
 layout: "static"
 ---
 
-Hello, I'm Basile Stathopulos. I'm a computer enthusiast. Computer graphics is
-my passion, but I am also currently interested in operating systems, programming
-languages, and analog hardware.
-
-Most of my software projects are for learning purposes. Some of them can be found
-on [my Github](github.com/baszy). Please check them out-- I hope you find them
-cool or useful.
+Hi, my name is Basile. This is a blog and archive for my software, generally
+concerning computer graphics, operating systems, programming languages, and
+(hobbyist-grade) electronics.
